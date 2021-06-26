@@ -66,15 +66,17 @@ class _DashBoardViewState extends State<DashBoardView> {
             SizedBox(
               height: 30,
             ),
-           // ListView.builder(
-             // scrollDirection: Axis.vertical,
-              //shrinkWrap: true,
-              //itemCount: student.length,
-              //itemBuilder: (BuildContext context, int index) {
-                // return buildListeOption(student[index]);
-             //   return Container();
-              //},
-            //),
+            Container(
+              height: 400.0,
+              color: Colors.red,
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: student.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return buildListeOption(student[index]);
+                },
+              ),
+            ),
           ],
         ),
       ),
@@ -86,8 +88,6 @@ class _DashBoardViewState extends State<DashBoardView> {
       children: [
         Container(
           color: Colors.white70,
-          height: 70,
-          width: MediaQuery.of(context).size.width - 210,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(

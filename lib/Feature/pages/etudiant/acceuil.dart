@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projettutore/Feature/pages/dashboard.dart';
 import 'package:projettutore/Feature/pages/etudiant/etudiant.dart';
+import 'package:projettutore/Feature/pages/etudiant/fiche_presence.dart';
+import 'package:projettutore/Feature/pages/etudiant/liste_etudiant.dart';
 
 import 'package:projettutore/Feature/pages/etudiant/listepresence.dart';
 
@@ -10,8 +12,7 @@ class Acceuil extends StatefulWidget {
 }
 
 class _AcceuilState extends State<Acceuil> {
- 
-  int activeIndex = 0;
+  int activeIndex;
 
   setActiveTab(index) {
     setState(() {
@@ -19,11 +20,19 @@ class _AcceuilState extends State<Acceuil> {
     });
   }
 
-  var tab = [
+  List pageView = [
     DashBoardView(),
-    Etudiant(),
+    BuildListeEdutiant(),
+    FichePresencePage(),
     Listepresence(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    activeIndex = 0;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -56,7 +65,7 @@ class _AcceuilState extends State<Acceuil> {
                         height: 30.0,
                       ),
                       InkWell(
-                        onTap: setActiveTab(0),
+                        onTap: ()=> setActiveTab(0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(80),
@@ -84,7 +93,7 @@ class _AcceuilState extends State<Acceuil> {
                       InkWell(
                         onTap: () => setActiveTab(1),
                         child: Text(
-                          "Etudiant",
+                          "Etudiants",
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -103,7 +112,16 @@ class _AcceuilState extends State<Acceuil> {
                         ),
                       ),
                       SizedBox(
-                        height: 27.0,
+                        height: 25.0,
+                      ),
+                      InkWell(
+                        onTap: () => setActiveTab(3),
+                        child: Text(
+                          "Mon compte",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -112,6 +130,8 @@ class _AcceuilState extends State<Acceuil> {
                   width: 10,
                 ),
                 Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       height: 100,
@@ -191,12 +211,16 @@ class _AcceuilState extends State<Acceuil> {
                             ]),
                       ),
                     ),
-                    SizedBox(height: 15),
-                    tab[activeIndex]
+                    SizedBox(
+                      height: 15.0,
+                    ),
+                    Container(
+                      child: pageView[activeIndex],
+                    ),
                   ],
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
