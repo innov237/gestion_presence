@@ -64,7 +64,7 @@ class _BuildListeEdutiantState extends State<BuildListeEdutiant> {
                       controller: null,
                     ),
                     BuildFormInput(
-                      placeholder: "Prenom Edutiant",
+                      placeholder: "Prénom Edutiant",
                       controller: null,
                     ),
                     BuildFormInput(
