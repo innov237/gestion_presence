@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
         body: Center(
           child: Container(
             width: 500.0,
-            height: 800.0,
+            height: 500.0,
             child: Card(
               elevation: 5.0,
               child: Padding(
