@@ -5,6 +5,7 @@ import 'package:projettutore/Feature/pages/etudiant/fiche_presence.dart';
 import 'package:projettutore/Feature/pages/etudiant/liste_etudiant.dart';
 
 import 'package:projettutore/Feature/pages/etudiant/listepresence.dart';
+import 'package:projettutore/Feature/pages/etudiant/login_page.dart';
 
 class Acceuil extends StatefulWidget {
   @override
@@ -65,7 +66,7 @@ class _AcceuilState extends State<Acceuil> {
                         height: 30.0,
                       ),
                       InkWell(
-                        onTap: ()=> setActiveTab(0),
+                        onTap: () => setActiveTab(0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(80),
@@ -118,6 +119,22 @@ class _AcceuilState extends State<Acceuil> {
                         onTap: () => setActiveTab(3),
                         child: Text(
                           "Mon compte",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 25.0,
+                      ),
+                      InkWell(
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (ctx) => LoginPage(),
+                          ),
+                        ),
+                        child: Text(
+                          "Déconnexion",
                           style: TextStyle(
                             color: Colors.white,
                           ),
