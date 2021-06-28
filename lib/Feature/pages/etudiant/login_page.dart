@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
         body: Center(
           child: Container(
             width: 500.0,
-            height: 500.0,
+            height: 300.0,
             child: Card(
               elevation: 5.0,
               child: Padding(
@@ -41,18 +41,21 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     SizedBox(
-                      height: 20.0,
+                      height: 30.0,
                     ),
                     BuildFormInput(
                       placeholder: "Nom utilisateur",
                       controller: null,
+                    ),
+                    SizedBox(
+                      height: 10.0,
                     ),
                     BuildFormInput(
                       placeholder: "Mot de passe",
                       controller: null,
                     ),
                     SizedBox(
-                      height: 10.0,
+                      height: 20.0,
                     ),
                     ElevatedButton(
                       onPressed: () => login(),
